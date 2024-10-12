@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoidAI - Proof of Concept</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3f4f6;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #f3f4f6;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #2563eb;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+        }
+
+        button,
+        .btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        button:hover,
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        main {
+            flex: 1;
+            padding-bottom: 50px;
+        }
+
+        /* Banner section with background image */
+        .bg-cover {
+            background-image: url('banner.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+        }
+
+        .features-section {
+            background-color: #e5e7eb;
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .feature-item {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 12px;
+            width: 45%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .feature-item {
+                width: 100%;
+            }
+        }
+
+        /* Maintenance Overlay */
+        .maintenance-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .maintenance-message {
+            background-color: #f44336;
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .maintenance-message h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .maintenance-message p {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+
+        .maintenance-message button {
+            background-color: #ffffff;
+            color: #f44336;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .maintenance-message button:hover {
+            background-color: #ffdddd;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Void logo.png" alt="VoidAI Logo" class="mr-3 h-10">
+                <a href="#" class="text-3xl font-bold text-white">VoidAI</a>
+            </div>
+            <button onclick="checkServerStatus()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Login</button>
+        </div>
+    </header>
+
+    <!-- Maintenance Overlay -->
+    <div id="maintenanceOverlay" class="maintenance-overlay flex">
+        <div class="maintenance-message">
+            <h2>Server Down for Maintenance</h2>
+            <p>The server is currently undergoing maintenance. Please try again later.</p>
+            <button onclick="closeOverlay()">Close</button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Banner Section with Image -->
+        <section class="bg-cover bg-center">
+            <div class="container mx-auto text-center">
+                <h1 class="text-5xl font-bold">VoidAI: Experiment with AI</h1>
+                <p class="mt-6 text-lg">VoidAI offers a hands-on experience with a custom AI model, designed to help you explore its capabilities. Built with modern technologies for experimentation.</p>
+                <button onclick="checkServerStatus()" class="mt-6 inline-block bg-blue-500 text-white px-8 py-3 rounded hover:bg-blue-600">Get Started</button>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-6 py-12 text-center">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">About VoidAI</h2>
+            <p class="text-lg text-gray-600 mx-auto leading-relaxed max-w-2xl">
+                VoidAI is a proof-of-concept project designed to demonstrate the potential of custom AI models in real-time interactions. It allows users to experiment, test, and explore its capabilities.
+            </p>
+        </section>
+
+        <section class="container mx-auto px-6 py-12">
+            <h2 class="text-gray-800 text-2xl font-semibold text-center">Technologies Used in VoidAI</h2>
+            <div class="flex flex-wrap justify-center gap-10 mt-8">
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">API Integration</h3>
+                    <p class="mt-4">VoidAI uses APIs to handle dynamic data, allowing real-time interaction and adaptability to various inputs.</p>
+                </div>
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">Local AI Model</h3>
+                    <p class="mt-4">VoidAI is powered by a locally hosted unfiltered version of the Llama 3.1 AI model, offering real-time responses. New trained models coming soon</p>
+                </div>
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">SMTP Server</h3>
+                    <p class="mt-4">SMTP is used for sending email notifications and user verification emails.</p>
+                </div>
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">ASP.NET</h3>
+                    <p class="mt-4">Built with ASP.NET, providing a scalable and secure web architecture.</p>
+                </div>
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">SQLite Database</h3>
+                    <p class="mt-4">Stores user data and chat logs using SQLite for lightweight database management.</p>
+                </div>
+                <div class="w-64 p-6 card">
+                    <h3 class="text-center font-semibold">Tailwind CSS</h3>
+                    <p class="mt-4">Styled with Tailwind CSS, offering a clean and responsive design across all devices.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mx-auto px-6 py-12 features-section">
+            <h2 class="text-gray-800 text-2xl font-semibold text-center mb-6">Project Features</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h3>AI Chat Functionality</h3>
+                    <p>Enables real-time conversational interaction with the AI model.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>User Registration</h3>
+                    <p>Secure user registration with email confirmation and password encryption using bcrypt.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Session Management</h3>
+                    <p>Maintains user sessions and chat history across multiple interactions.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Concurrency Control</h3>
+                    <p>Ensures smooth performance while managing multiple concurrent users. Currently Limited to 3 concurrent users at a time.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Tokens</h3>
+                    <p>Users are allowed up to 20 tokens per day due to resource limits of the server.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Error Handling</h3>
+                    <p>Robust error handling ensures a smooth user experience and quick recovery from issues.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-100 text-center p-4">
+        <p>© 2024 VoidAI</p>
+    </footer>
+
+    <script>
+        document.getElementById('maintenanceOverlay').style.display = 'none';
+
+        // Function to check if the server is running when the button is clicked
+        function checkServerStatus() {
+            fetch('https://rapidly-generous-koi.ngrok-free.app/', { method: 'GET' })
+                .then(response => {
+                    if (response.ok) {
+                        // Server is up, redirect to login page
+                        window.location.href = 'https://rapidly-generous-koi.ngrok-free.app/';
+                    } else {
+                        // Server is down, show the maintenance overlay
+                        document.getElementById('maintenanceOverlay').style.display = 'flex';
+                    }
+                })
+                .catch(() => {
+                    // Server is down or unreachable, show the maintenance overlay
+                    document.getElementById('maintenanceOverlay').style.display = 'flex';
+                });
+        }
+        
+        // Function to close the maintenance overlay
+        function closeOverlay() {
+            document.getElementById('maintenanceOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
