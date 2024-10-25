@@ -75,27 +75,148 @@
             padding: 80px 20px;
         }
 
-        .card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        /* From Uiverse.io by iconicchandu */ 
+.card {
+    --white: hsl(0, 0%, 100%);
+    --black: hsl(240, 15%, 9%);
+    --paragraph: hsl(0, 0%, 83%);
+    --line: hsl(240, 9%, 17%);
+    --primary: hsl(189, 92%, 58%);
+  
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  
+    padding: 1rem;
+    width: 19rem;
+    background-color: hsla(240, 15%, 9%, 1);
+    background-image: radial-gradient(
+        at 88% 40%,
+        hsla(240, 15%, 9%, 1) 0px,
+        transparent 85%
+      ),
+      radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+      radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+      radial-gradient(at 0% 64%, hsl(189, 99%, 26%) 0px, transparent 85%),
+      radial-gradient(at 41% 94%, hsl(189, 97%, 36%) 0px, transparent 85%),
+      radial-gradient(at 100% 99%, hsl(188, 94%, 13%) 0px, transparent 85%);
+  
+    border-radius: 1rem;
+    box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
+  }
+  
+  .card .card__border {
+    overflow: hidden;
+    pointer-events: none;
+  
+    position: absolute;
+    z-index: -10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background-image: linear-gradient(
+      0deg,
+      hsl(0, 0%, 100%) -50%,
+      hsl(0, 0%, 40%) 100%
+    );
+  
+    border-radius: 1rem;
+  }
+  
+  .card .card__border::before {
+    content: "";
+    pointer-events: none;
+  
+    position: fixed;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%), rotate(0deg);
+    transform-origin: left;
+  
+    width: 200%;
+    height: 10rem;
+    background-image: linear-gradient(
+      0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsl(189, 100%, 50%) 40%,
+      hsl(189, 100%, 50%) 60%,
+      hsla(0, 0%, 40%, 0) 100%
+    );
+  
+    animation: rotate 8s linear infinite;
+  }
+  
+  @keyframes rotate {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .card .card_title__container .card_title {
+    font-size: 1.2rem;
+    color: var(--white);
+  }
+  
+  .card .card_title__container .card_paragraph {
+    margin-top: 0.25rem;
+    width: 65%;
+  
+    font-size: 0.75rem;
+    color: var(--paragraph);
+  }
+  
+  .card .line {
+    width: 100%;
+    height: 0.1rem;
+    background-color: var(--line);
+  
+    border: none;
+  }
+  
+  .card .card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .card .card__list .card__list_item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .card .card__list .card__list_item .check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--primary);
+  
+    border-radius: 50%;
+  }
+  
+  .card .card__list .card__list_item .check .check_svg {
+    width: 0.75rem;
+    height: 0.75rem;
+  
+    fill: var(--black);
+  }
+  
+  .card .card__list .card__list_item .list_text {
+    font-size: 0.75rem;
+    color: var(--white);
+  }
+  
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .card h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .card p {
-            color: #555;
-        }
+  
 
         .features-section {
             background-color: #e5e7eb;
@@ -132,6 +253,95 @@
         .feature-item p {
             color: #555;
         }
+        .glowbutton {
+            --glow-color: rgb(176, 252, 255);
+            --glow-spread-color: rgba(123, 251, 255, 0.781);
+            --enhanced-glow-color: rgb(206, 255, 255);
+            --btn-color: rgb(61, 127, 136);
+            border: 0.25em solid var(--glow-color);
+            padding: 1em 3em;
+            color: var(--glow-color);
+            font-size: 15px;
+            font-weight: bold;
+            background-color: var(--btn-color);
+            border-radius: 1em;
+            outline: none;
+            box-shadow: 0 0 1em 0.25em var(--glow-color),
+              0 0 4em 1em var(--glow-spread-color),
+              inset 0 0 0.75em 0.25em var(--glow-color);
+            text-shadow: 0 0 0.5em var(--glow-color);
+            position: relative;
+            transition: all 0.3s;
+          }
+          
+          .glowbutton::after {
+            pointer-events: none;
+            content: "";
+            position: absolute;
+            top: 120%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: var(--glow-spread-color);
+            filter: blur(2em);
+            opacity: 0.7;
+            transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+          }
+          
+          .glowbutton:hover {
+            color: var(--btn-color);
+            background-color: var(--glow-color);
+            box-shadow: 0 0 1em 0.25em var(--glow-color),
+              0 0 4em 2em var(--glow-spread-color),
+              inset 0 0 0.75em 0.25em var(--glow-color);
+          }
+          
+          .glowbutton:active {
+            box-shadow: 0 0 0.6em 0.25em var(--glow-color),
+              0 0 2.5em 2em var(--glow-spread-color),
+              inset 0 0 0.5em 0.25em var(--glow-color);
+          }
+          .spiffy {
+            /* Basic dimensions and centering */
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          
+            /* Dark mode colors and gradient */
+            background: #121212; /* Fallback for browsers that don't support gradients */
+            background: linear-gradient(
+              135deg,
+              #121212 25%,
+              #1a1a1a 25%,
+              #1a1a1a 50%,
+              #121212 50%,
+              #121212 75%,
+              #1a1a1a 75%,
+              #1a1a1a
+            );
+            background-size: 40px 40px;
+          
+            /* Animation */
+            animation: move 4s linear infinite;
+          }
+          
+          @keyframes move {
+            0% {
+              background-position: 0 0;
+            }
+            100% {
+              background-position: 40px 40px;
+            }
+          }
+          .spiffy h2 {
+            color: #ffffff; /* Ensures heading is white */
+            text-align: center; /* Centers the heading */
+            
+        }
+          
+          
 
         @media (max-width: 768px) {
             .feature-item {
@@ -190,7 +400,7 @@
                 <img src="Vaelogo.png" alt="VoidAI Logo" class="mr-3 h-10">
                 <a href="#" class="text-3xl font-bold text-white">Vae Victus AI</a>
             </div>
-            <button onclick="checkServerStatus()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Login</button>
+            <button onclick="checkServerStatus()" class=glowbutton>Login</button>
             
         </div>
     </header>
@@ -212,9 +422,10 @@
                 <p class="mt-6 text-lg">
                     Vae Victus AI is a forward-thinking startup focused on delivering a secure, hands-on experience with a custom AI model. 
                     Built on cutting-edge technologies, it empowers users to explore AI's capabilities while maintaining full control of their data. 
-                    We're just getting started, with even more powerful features and enhancements on the horizon.
+                    We're just getting started, with even more powerful features and enhancements on the horizon.<br>
                 </p>
-                <button onclick="checkServerStatus()" class="mt-6 inline-block bg-blue-500 text-white px-8 py-3 rounded hover:bg-blue-600">Get Started</button>
+                <br>
+                <button onclick="checkServerStatus()" class="glowbutton">Get Started</button>
             </div>
         </section>
         <section class="container mx-auto px-6 py-4 text-center">
@@ -236,73 +447,280 @@
             </p>
         </section>
 
-        <section class="container mx-auto px-6 py-12">
-            <h2 class="text-gray-800 text-2xl font-semibold text-center">Technologies Used in Vae Victus AI</h2>
-            <div class="flex flex-wrap justify-center gap-10 mt-8">
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">Security and Privacy</h3>
-                    <p class="mt-4">Vae Victus AI prioritizes user security, with strong encryption, secure sessions, and strict privacy measures to ensure that your data remains yours and is never sold.</p>
+        <section class="spiffy">
+            <div class="container mx-auto px-6 py-12 text-center">
+                <h2 class="text-white text-2xl font-semibold mb-6">Technologies Used in Vae Victus AI</h2>
+                <div class="flex flex-wrap justify-center gap-10 mt-8">
+        
+                <!-- Security and Privacy Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Security and Privacy</span>
+                        <p class="card_paragraph">Vae Victus AI prioritizes user security, with strong encryption, secure sessions, and strict privacy measures to ensure that your data remains yours and is never sold.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Secure Sessions</span>
+                        </li>
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Encryption Techniques</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">API Integration</h3>
-                    <p class="mt-4">Vae Victus AI uses APIs to handle dynamic data, allowing real-time interaction and adaptability to various inputs.</p>
+        
+                <!-- API Integration Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">API Integration</span>
+                        <p class="card_paragraph">Vae Victus AI uses APIs to handle dynamic data, allowing real-time interaction and adaptability to various inputs.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Real-time Data</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">Local AI Model</h3>
-                    <p class="mt-4">Vae Victus AI is powered by a locally hosted version of a modified Llama 3.2 AI model, offering real-time responses. New trained models coming soon</p>
+        
+                <!-- Local AI Model Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Local AI Model</span>
+                        <p class="card_paragraph">Vae Victus AI is powered by a locally hosted version of a modified Llama 3.2 AI model, offering real-time responses. New trained models coming soon.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Real-time Responses</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">SMTP Server</h3>
-                    <p class="mt-4">SMTP is used for sending email notifications and user verification emails.</p>
+        
+                <!-- SMTP Server Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">SMTP Server</span>
+                        <p class="card_paragraph">SMTP is used for sending email notifications and user verification emails.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">User Verification</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">ASP.NET</h3>
-                    <p class="mt-4">Built with ASP.NET, providing a scalable and secure web architecture.</p>
+        
+                <!-- ASP.NET Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">ASP.NET</span>
+                        <p class="card_paragraph">Built with ASP.NET, providing a scalable and secure web architecture.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Scalable Architecture</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="w-64 p-6 card">
-                    <h3 class="text-center font-semibold">SQLite Database</h3>
-                    <p class="mt-4">Stores user data and chat logs using SQLite for lightweight database management.</p>
+        
+                <!-- SQLite Database Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">SQLite Database</span>
+                        <p class="card_paragraph">Stores user data and chat logs using SQLite for lightweight database management.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Efficient Data Storage</span>
+                        </li>
+                    </ul>
                 </div>
-                
+        
             </div>
         </section>
+        <div class="flex justify-center my-12">
+            <div class="w-32 h-1 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full"></div>
+        </div>
 
-        <section class="container mx-auto px-6 py-12 features-section">
+        <section class="container mx-auto px-6 py-12">
             <h2 class="text-gray-800 text-2xl font-semibold text-center mb-6">Project Features</h2>
-            <div class="features-list">
-                <div class="feature-item">
-                    <h3>AI Chat Functionality</h3>
-                    <p>Enables real-time conversational interaction with the AI model.</p>
+            <div class="flex flex-wrap justify-center gap-10 mt-8">
+        
+                <!-- AI Chat Functionality Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">AI Chat Functionality</span>
+                        <p class="card_paragraph">Enables real-time conversational interaction with the AI model.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Real-Time Interaction</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <h3>User Registration</h3>
-                    <p>Secure user registration with email confirmation and password encryption using bcrypt.</p>
+        
+                <!-- User Registration Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">User Registration</span>
+                        <p class="card_paragraph">Secure user registration with email confirmation and password encryption using bcrypt.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Email Confirmation</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <h3>Session Management</h3>
-                    <p>Maintains user sessions and chat history across multiple interactions.</p>
+        
+                <!-- Session Management Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Session Management</span>
+                        <p class="card_paragraph">Maintains user sessions and chat history across multiple interactions.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Chat History</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <h3>Concurrency Control</h3>
-                    <p>Ensures smooth performance while managing multiple concurrent users. Currently Limited to 3 concurrent users at a time.</p>
+        
+                <!-- Concurrency Control Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Concurrency Control</span>
+                        <p class="card_paragraph">Ensures smooth performance while managing multiple concurrent users. Limited to 3 concurrent users at a time.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">3 User Limit</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <h3>Tokens</h3>
-                    <p>Users are allowed up to 20 tokens per day due to resource limits of the server.</p>
+        
+                <!-- Tokens Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Tokens</span>
+                        <p class="card_paragraph">Users are allowed up to 20 tokens per day due to resource limits of the server.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">20 Tokens Daily</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="feature-item">
-                    <h3>Error Handling</h3>
-                    <p>Robust error handling ensures a smooth user experience and quick recovery from issues.</p>
+        
+                <!-- Error Handling Card -->
+                <div class="card">
+                    <div class="card__border"></div>
+                    <div class="card_title__container">
+                        <span class="card_title">Error Handling</span>
+                        <p class="card_paragraph">Robust error handling ensures a smooth user experience and quick recovery from issues.</p>
+                    </div>
+                    <hr class="line" />
+                    <ul class="card__list">
+                        <li class="card__list_item">
+                            <span class="check">
+                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
+                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
+                                </svg>
+                            </span>
+                            <span class="list_text">Quick Recovery</span>
+                        </li>
+                    </ul>
                 </div>
+        
             </div>
         </section>
-        <section class="container mx-auto px-6 py-12 text-center">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-6">About the Creator</h2>
-            <p class="text-lg text-gray-600 mx-auto leading-relaxed max-w-2xl">
-                I am Ryker Hill, a versatile software engineer specializing in developing efficient and robust solutions for web and desktop applications, and backend services. With expertise in a variety of programming languages and modern software development practices, I am committed to delivering high-quality and scalable solutions.
-                <br><br>
-                Check out my portfolio at <a href="https://rykerhillportfolio.com" class="text-blue-500 hover:text-blue-700">rykerhillportfolio.com</a> to learn more about my work and projects.
-            </p>
+        <section class="spiffy">
+            <div class="container mx-auto px-6 py-12 text-center">
+                <h2 class="text-3xl font-semibold text-white mb-6">About the Creator</h2>
+                <p class="text-lg text-white mx-auto leading-relaxed max-w-2xl">
+                    I am Ryker Hill, a versatile software engineer specializing in developing efficient and robust solutions for web and desktop applications, and backend services. With expertise in a variety of programming languages and modern software development practices, I am committed to delivering high-quality and scalable solutions.
+                    <br><br>
+                    Check out my portfolio at <a href="https://rykerhillportfolio.com" class="text-blue-500 hover:text-blue-700">rykerhillportfolio.com</a> to learn more about my work and projects.
+                </p>
+            </div>
         </section>
         
     </main>
