@@ -26,7 +26,9 @@
             display: flex;
             flex-direction: column;
         }
-
+        p {
+            color: whitesmoke;
+        }
         header {
             background-color: #1f2937;
             color: white;
@@ -38,6 +40,9 @@
             padding: 10px 0;
             text-align: center;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 h2 h3 h4 h5 h6 { 
+            color: whitesmoke;
         }
 
         a {
@@ -248,10 +253,12 @@
         .feature-item h3 {
             color: #2563eb;
             margin-bottom: 10px;
+            
         }
 
         .feature-item p {
             color: #555;
+            
         }
         .glowbutton {
             --glow-color: rgb(176, 252, 255);
@@ -272,6 +279,7 @@
             text-shadow: 0 0 0.5em var(--glow-color);
             position: relative;
             transition: all 0.3s;
+            animation: cyberGlow 3s ease-in-out infinite;
           }
           
           .glowbutton::after {
@@ -396,9 +404,147 @@
         .maintenance-message button:hover {
             background-color: #ffdddd;
         }
+        .particle-matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            background-color: #0a0a0f;
+        }
+        .matrix-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+            z-index: -1;
+        }
+        
+        .matrix {
+            width: 100%;
+            height: 100%;
+            color: #00ff41;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            75% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+        
+        .matrix::before {
+            content: '010101010010011001110010101010101110101011001101000011010010101100110110111100101101';
+            animation: fall 3s linear infinite;
+            letter-spacing: 5px;
+            animation-delay: 0s;
+        }
+        
+        .matrix::after {
+            content: '1110101011010100101010101111010101001010010101101010110011101011010110111010101';
+            animation: fall 4s linear infinite;
+            letter-spacing: 5px;
+            animation-delay: 1s;
+        }
+        
+        
+        .advanced-tech-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.7;
+            background-color: #0a0a0f;
+        }
+        
+        
+        
+        
     </style>
 </head>
+<svg class="advanced-tech-background" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+        <!-- Glow gradient for circles and lines -->
+        <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#00fff0" />
+            <stop offset="100%" stop-color="transparent" />
+        </radialGradient>
+    </defs>
 
+    <!-- Rotating Pulsing Circles Layer -->
+    <g fill="url(#glowGradient)" opacity="0.6">
+        <circle cx="200" cy="200" r="40">
+            <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" dur="15s" repeatCount="indefinite"/>
+            <animate attributeName="r" values="40; 45; 40" dur="5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="600" cy="200" r="50">
+            <animateTransform attributeName="transform" type="rotate" from="360 600 200" to="0 600 200" dur="20s" repeatCount="indefinite"/>
+            <animate attributeName="r" values="50; 55; 50" dur="4s" repeatCount="indefinite" />
+        </circle>
+    </g>
+
+    <!-- Interconnecting Lines Layer -->
+    <g stroke="url(#glowGradient)" stroke-width="1.5">
+        <line x1="200" y1="200" x2="600" y2="200">
+            <animate attributeName="opacity" values="0.5; 1; 0.5" dur="3s" repeatCount="indefinite"/>
+        </line>
+        <line x1="200" y1="200" x2="400" y2="50">
+            <animate attributeName="opacity" values="0.3; 0.8; 0.3" dur="4s" repeatCount="indefinite"/>
+        </line>
+        <line x1="400" y1="50" x2="600" y2="200">
+            <animate attributeName="opacity" values="0.3; 0.8; 0.3" dur="5s" repeatCount="indefinite"/>
+        </line>
+        <line x1="400" y1="350" x2="600" y2="200">
+            <animate attributeName="opacity" values="0.3; 0.8; 0.3" dur="6s" repeatCount="indefinite"/>
+        </line>
+    </g>
+
+    <!-- Moving Glowing Nodes Layer -->
+    <g fill="url(#glowGradient)">
+        <circle cx="200" cy="200" r="5">
+            <animateMotion dur="8s" repeatCount="indefinite">
+                <mpath href="#path1"/>
+            </animateMotion>
+        </circle>
+        <circle cx="400" cy="50" r="5">
+            <animateMotion dur="8s" repeatCount="indefinite">
+                <mpath href="#path2"/>
+            </animateMotion>
+        </circle>
+    </g>
+
+    <!-- Rotating Hexagons Layer -->
+    <g opacity="0.4">
+        <polygon points="300,50 320,90 280,90" fill="#0ff" transform="rotate(30 300 70)">
+            <animateTransform attributeName="transform" type="rotate" from="0 300 70" to="360 300 70" dur="10s" repeatCount="indefinite"/>
+        </polygon>
+        <polygon points="500,300 520,340 480,340" fill="#0ff" transform="rotate(-30 500 320)">
+            <animateTransform attributeName="transform" type="rotate" from="360 500 320" to="0 500 320" dur="12s" repeatCount="indefinite"/>
+        </polygon>
+    </g>
+</svg>
 <body>
     <header class="bg-gray-800 shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -421,7 +567,8 @@
     </div>
 
     <main>
-        <!-- Banner Section with Image -->
+        
+        
         <section class="bg-cover bg-center">
             <div class="container mx-auto text-center">
                 <h1 class="text-5xl font-bold">Vae Victus AI: Innovate with Security</h1>
@@ -435,19 +582,19 @@
             </div>
         </section>
         <section class="container mx-auto px-6 py-4 text-center">
-            <p class="text-gray-600 text-sm">
+            <p class="text-black-600 text-sm">
                 By using Vae Victus AI, you agree to our 
                 <a href="Terms.html" class="text-blue-500 hover:text-blue-600">Terms of Service</a>.
             </p>
         </section>
-        <section class="container mx-auto px-6 py-12 text-center bg-gray-100">
-            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Your Data, Your Control</h2>
-            <p class="text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+        <section class="container mx-auto px-6 py-12 text-center  ">
+            <p class="text-3xl font-semibold text-800 mb-6">Your Data, Your Control<p>
+            <p class="text-lg text-whitesmoke-600 mx-auto leading-relaxed max-w-3xl">
                 At Vae Victus AI, security and privacy are our top priorities. We believe in a secure experience where 
                 <strong>you own what’s generated</strong>, and <strong>we don’t sell your data</strong> to third parties. 
                 Every interaction is designed with your privacy in mind, ensuring that your data remains yours and secure.
             </p>
-            <p class="mt-4 text-lg text-gray-600 mx-auto leading-relaxed max-w-3xl">
+            <p class="mt-4 text-lg text-white-600 mx-auto leading-relaxed max-w-3xl">
                 All communications are encrypted, and sensitive data, such as passwords, are protected using industry-standard encryption techniques. 
                 <strong>We prioritize your security</strong> with features such as tokenized user interactions, secure session management, and full transparency in how your data is handled.
             </p>
