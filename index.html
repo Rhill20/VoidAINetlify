@@ -893,11 +893,11 @@
 
         // Function to check if the server is running when the button is clicked
         function checkServerStatus() {
-            fetch('', { method: 'GET' })
+            fetch('https://vae-victus-ai.netlify.app/live', { method: 'GET' })
                 .then(response => {
                     if (response.ok) {
                         // Server is up, redirect to login page
-                        window.location.href = '';
+                        window.location.href = 'https://vae-victus-ai.netlify.app/live';
                     } else {
                         // Server is down, show the maintenance overlay
                         document.getElementById('maintenanceOverlay').style.display = 'flex';
