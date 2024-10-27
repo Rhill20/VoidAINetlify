@@ -560,8 +560,14 @@
     <!-- Maintenance Overlay -->
     <div id="maintenanceOverlay" class="maintenance-overlay flex">
         <div class="maintenance-message">
-            <h2>Server Down for Maintenance</h2>
-            <p>The server is currently undergoing maintenance. Please try again later.</p>
+            <h2>Server Down Due to Limited Support</h2>
+            <p>Thank you for your interest in Vae Victus Artificial Intelligence. Unfortunately, due to limited support, we have made the difficult decision to close down the platform.<br>
+
+                We created Vae Victus to provide a truly private, secure AI experience, where your data remains yours and yours alone. While our journey may be ending here, we hope our mission inspires more privacy-focused solutions in the future.
+                <br>
+                Thank you for being part of this vision.
+                <br>
+            If you are interested in using vae victus please email <a href="mailto:voidreply.ai@gmail.com" class="text-blue-500 hover:text-blue-600">voidreply.ai@gmail.com</a></p>
             <button onclick="closeOverlay()">Close</button>
         </div>
     </div>
@@ -887,11 +893,11 @@
 
         // Function to check if the server is running when the button is clicked
         function checkServerStatus() {
-            fetch('https://rapidly-generous-koi.ngrok-free.app/', { method: 'GET' })
+            fetch('', { method: 'GET' })
                 .then(response => {
                     if (response.ok) {
                         // Server is up, redirect to login page
-                        window.location.href = 'https://rapidly-generous-koi.ngrok-free.app/';
+                        window.location.href = '';
                     } else {
                         // Server is down, show the maintenance overlay
                         document.getElementById('maintenanceOverlay').style.display = 'flex';
