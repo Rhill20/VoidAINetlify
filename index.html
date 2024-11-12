@@ -552,7 +552,7 @@
                 <img src="Vaelogo.png" alt="VoidAI Logo" class="mr-3 h-10">
                 <a href="#" class="text-3xl font-bold text-white">Vae Victus AI</a>
             </div>
-            <button onclick="checkServerStatus()" class=glowbutton>Login</button>
+            <button onclick="window.location.href='consultation.html'" class="glowbutton">Schedule A Consultation </button>
             
         </div>
     </header>
@@ -577,14 +577,12 @@
         
         <section class="bg-cover bg-center">
             <div class="container mx-auto text-center">
-                <h1 class="text-5xl font-bold">Vae Victus AI: Innovate with Security</h1>
+                <h1 class="text-5xl font-bold">Take Full Control of Your AI</h1>
                 <p class="mt-6 text-lg">
-                    Vae Victus AI is a forward-thinking startup focused on delivering a secure, hands-on experience with a custom AI model. 
-                    Built on cutting-edge technologies, it empowers users to explore AI's capabilities while maintaining full control of their data. 
-                    We're just getting started, with even more powerful features and enhancements on the horizon.<br>
+                    Vae Victus AI gives you everything you need to host your own AI, with no hidden fees and complete privacy. We set it up, you run it—your AI, your way.
                 </p>
                 <br>
-                <button onclick="checkServerStatus()" class="glowbutton">Get Started</button>
+                
             </div>
         </section>
         <section class="container mx-auto px-6 py-4 text-center">
@@ -593,16 +591,49 @@
                 <a href="Terms.html" class="text-blue-500 hover:text-blue-600">Terms of Service</a>.
             </p>
         </section>
+        <section class="container mx-auto px-6 py-12 text-center">
+            <p class="text-3xl font-semibold text-whitesmoke-800 mb-6">How It Works</p>
+            <p class="text-lg text-white mx-auto leading-relaxed max-w-3xl">
+                At Vae Victus AI, our goal is to make AI accessible to everyone—not just companies, but individuals ready to explore the power of AI. Here’s how it works:
+            </p>
+            <div class="flex flex-wrap justify-center gap-10 mt-8">
+                <!-- Step 1: Consultation and Setup -->
+                <div class="feature-item bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">1. Personalized Consultation</h3>
+                    <p class="text-gray-700">
+                        We start with a one-on-one consultation to understand your needs, preferences, and goals for your AI environment. This initial step helps us tailor the setup process to best suit your vision.
+                    </p>
+                </div>
+                
+                <!-- Step 2: Complete Environment Setup -->
+                <div class="feature-item bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">2. Environment Setup</h3>
+                    <p class="text-gray-700">
+                        Next, we handle all the technical details—configuring, securing, and optimizing your web application. From architecture to deployment, we ensure your AI environment is fully operational, private, and ready for your use.
+                    </p>
+                </div>
+                
+                <!-- Step 3: Support and Options -->
+                <div class="feature-item bg-white shadow-md rounded-lg p-6">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">3. Ongoing Support</h3>
+                    <p class="text-gray-700">
+                        Once setup is complete, choose from flexible subscription plans. Opt for month-to-month flexibility or secure lifetime access. Either way, you’ll enjoy continuous support as you explore the full potential of your custom AI.
+                    </p>
+                </div>
+            </div>
+           
+        </section>
+        
+        
         <section class="container mx-auto px-6 py-12 text-center  ">
             <p class="text-3xl font-semibold text-800 mb-6">Your Data, Your Control<p>
             <p class="text-lg text-whitesmoke-600 mx-auto leading-relaxed max-w-3xl">
-                At Vae Victus AI, security and privacy are our top priorities. We believe in a secure experience where 
-                <strong>you own what’s generated</strong>, and <strong>we don’t sell your data</strong> to third parties. 
-                Every interaction is designed with your privacy in mind, ensuring that your data remains yours and secure.
+                Vae Victus AI offers a unique service to equip you with the web architecture needed to run your own AI model. With our setup assistance, you gain a fully configured environment, giving you the power to host, control, and customize your AI on your terms.
+
             </p>
             <p class="mt-4 text-lg text-white-600 mx-auto leading-relaxed max-w-3xl">
-                All communications are encrypted, and sensitive data, such as passwords, are protected using industry-standard encryption techniques. 
-                <strong>We prioritize your security</strong> with features such as tokenized user interactions, secure session management, and full transparency in how your data is handled.
+                No hosting fees, no data sharing—just a secure, private AI setup that’s entirely yours. Let Vae Victus AI handle the technical setup so you can focus on harnessing AI’s full potential.
+
             </p>
         </section>
 
@@ -664,7 +695,7 @@
                     <div class="card__border"></div>
                     <div class="card_title__container">
                         <span class="card_title">Local AI Model</span>
-                        <p class="card_paragraph">Vae Victus AI is powered by a locally hosted version of a modified Llama 3.2 AI model, offering real-time responses. New trained models coming soon.</p>
+                        <p class="card_paragraph">The Standard Vae Victus AI is powered by a locally hosted version of a modified Llama 3.2 AI model, offering real-time responses. New trained models coming soon.</p>
                     </div>
                     <hr class="line" />
                     <ul class="card__list">
@@ -810,44 +841,9 @@
                 </div>
         
                 <!-- Concurrency Control Card -->
-                <div class="card">
-                    <div class="card__border"></div>
-                    <div class="card_title__container">
-                        <span class="card_title">Concurrency Control</span>
-                        <p class="card_paragraph">Ensures smooth performance while managing multiple concurrent users. Limited to 3 concurrent users at a time.</p>
-                    </div>
-                    <hr class="line" />
-                    <ul class="card__list">
-                        <li class="card__list_item">
-                            <span class="check">
-                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
-                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                            <span class="list_text">3 User Limit</span>
-                        </li>
-                    </ul>
-                </div>
+               
         
-                <!-- Tokens Card -->
-                <div class="card">
-                    <div class="card__border"></div>
-                    <div class="card_title__container">
-                        <span class="card_title">Tokens</span>
-                        <p class="card_paragraph">Users are allowed up to 20 tokens per day due to resource limits of the server.</p>
-                    </div>
-                    <hr class="line" />
-                    <ul class="card__list">
-                        <li class="card__list_item">
-                            <span class="check">
-                                <svg class="check_svg" fill="currentColor" viewBox="0 0 16 16">
-                                    <path clip-rule="evenodd" d="M12.416 3.376a.75.75 0 0 1 .208 1.04l-5 7.5a.75.75 0 0 1-1.154.114l-3-3a.75.75 0 0 1 1.06-1.06l2.353 2.353 4.493-6.74a.75.75 0 0 1 1.04-.207Z" fill-rule="evenodd"></path>
-                                </svg>
-                            </span>
-                            <span class="list_text">20 Tokens Daily</span>
-                        </li>
-                    </ul>
-                </div>
+                
         
                 <!-- Error Handling Card -->
                 <div class="card">
