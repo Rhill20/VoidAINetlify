@@ -5,159 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultation - Vae Victus AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
     <style>
-        /* General styles */
+        /* Main background and font styles */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f3f4f6;
-            color: #333;
+            background-color: #1f2937;
+            color: #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
-        /* Header styles */
+        /* Header styling */
         header {
             background-color: #1f2937;
             color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            font-size: 1.75rem;
-        }
-
-        /* Home button */
-        .home-button {
-            background-color: #2563eb;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-align: center;
-            outline: none;
-        }
-
-        .home-button:hover {
-            background-color: #1d4ed8;
-        }
-
-        .home-button:focus {
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
         
-        /* Contact form styles */
-        .contact-form {
-            background-color: white;
-            padding: 2rem;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        .glowbutton {
+            --glow-color: #2563eb;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            background-color: #2563eb;
             border-radius: 8px;
-            max-width: 600px;
-            margin: auto;
+            border: 0;
+            outline: none;
+            box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .glowbutton:hover {
+            background-color: #1d4ed8;
+            box-shadow: 0 0 15px rgba(29, 78, 216, 0.7);
+        }
+        
+        /* Main content and form */
+        .contact-form {
+            background-color: #2d3748;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            max-width: 500px;
+            margin: 2rem auto;
         }
         
         .contact-form h2 {
-            color: #333;
+            color: #e2e8f0;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
         }
-        
+
         .contact-form p {
-            color: #4a5568;
+            color: #a0aec0;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
         }
-        
-        /* Form inputs */
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             margin-top: 8px;
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            font-size: 1rem;
-            color: #333;
+            border: 1px solid #4a5568;
+            border-radius: 6px;
+            background-color: #2d3748;
+            color: #e2e8f0;
+            transition: border-color 0.3s;
         }
-        
+
         .contact-form input:focus,
         .contact-form textarea:focus {
             outline: none;
             border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 0 5px rgba(37, 99, 235, 0.5);
         }
-        
-        .contact-form textarea {
-            resize: vertical;
-        }
-        
-        /* Submit button */
+
         .contact-form button {
             width: 100%;
             padding: 12px;
+            margin-top: 1rem;
             background-color: #2563eb;
             color: white;
+            border-radius: 6px;
             font-weight: bold;
-            border-radius: 4px;
-            font-size: 1rem;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s;
         }
-        
+
         .contact-form button:hover {
             background-color: #1d4ed8;
         }
-        
-        /* Footer */
+
+        /* Footer styling */
         footer {
             background-color: #1f2937;
-            color: #f3f4f6;
-            padding: 10px 0;
+            color: #e5e7eb;
             text-align: center;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            padding: 10px 0;
+            margin-top: auto;
         }
-        
-        footer p {
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
+
+        /* Responsive form adjustments */
+        @media (max-width: 640px) {
             .contact-form {
                 padding: 1.5rem;
-            }
-            .contact-form h2 {
-                font-size: 1.75rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header with Home button -->
-    <header>
-        <h1>Consultation with Vae Victus AI</h1>
-        <button onclick="window.location.href='index.html'" class="home-button">Home</button>
+    <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex">
+            <div class="flex items-center">
+            
+            <button onclick="window.location.href='index.html'" class="glowbutton">Home</button>
+        </div>
+        </div>
     </header>
-    
-    <!-- Main content with contact form -->
-    <main class="container mx-auto px-6 py-12">
+
+    <main class="container mx-auto px-6 py-12 text-center flex-grow">
         <section id="contact" class="contact-form">
-            <h2 class="text-2xl font-bold text-center mb-4">Contact Us</h2>
-            <p class="text-center mb-6 text-gray-600">
+            <h2 class="text-3xl font-semibold mb-4">Contact Us</h2>
+            <p class="text-lg text-gray-300 mb-6">
                 Fill out the form below to schedule your consultation and learn more about setting up your own AI environment.
             </p>
-            <form action="https://formspree.io/f/myyrjovy" method="POST" class="grid grid-cols-1 gap-4">
-                <input type="text" id="name" name="name" placeholder="Your Name" required class="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <input type="email" id="email" name="email" placeholder="Your Email" required class="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <input type="text" id="phone" name="phone" placeholder="Your Phone (Optional)" class="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <textarea id="message" name="message" placeholder="How can we assist you?" rows="4" required class="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                <button type="submit" class="bg-blue-500 text-white py-3 rounded-lg font-semibold hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <form action="https://formspree.io/f/myyrjovy" method="POST" class="space-y-4">
+                <input type="text" id="name" name="name" placeholder="Your Name" required class="p-3">
+                <input type="email" id="email" name="email" placeholder="Your Email" required class="p-3">
+                <input type="text" id="phone" name="phone" placeholder="Your Phone (Optional)" class="p-3">
+                <textarea id="message" name="message" placeholder="How can we assist you?" rows="4" required class="p-3"></textarea>
+                <button type="submit" class="bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
                     Send Message
                 </button>
             </form>
         </section>
     </main>
+
+    <footer class="bg-gray-800 text-gray-100 text-center p-4 mt-8">
+        <p>© 2024 Vae Victus AI</p>
+    </footer>
 </body>
 </html>

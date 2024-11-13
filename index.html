@@ -552,7 +552,23 @@
                 <img src="Vaelogo.png" alt="VoidAI Logo" class="mr-3 h-10">
                 <a href="#" class="text-3xl font-bold text-white">Vae Victus AI</a>
             </div>
-            <button onclick="window.location.href='consultation.html'" class="glowbutton">Schedule A Consultation </button>
+            <!-- Mobile Menu Button -->
+            <button id="menuButton" class="text-white md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <!-- Nav Menu -->
+            <nav id="navMenu" class="hidden md:flex space-x-4 text-white">
+                <a href="demo.html" class="hover:text-blue-500">Demo</a>
+                <a href="consultation.html" class="hover:text-blue-500">Consultation</a>
+                
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-gray-800 text-white">
+            <a href="demo.html" class="block py-2 px-4 hover:bg-gray-700">Demo</a>
+            <a href="consultation.html" class="block py-2 px-4 hover:bg-gray-700">Consultation</a>
             
         </div>
     </header>
@@ -582,7 +598,7 @@
                     Vae Victus AI gives you everything you need to host your own AI, with no hidden fees and complete privacy. We set it up, you run it—your AI, your way.
                 </p>
                 <br>
-                
+                <button onclick="window.location.href='consultation.html'" class="glowbutton">Schedule A Consultation </button>
             </div>       
         </section>
         <section class="container mx-auto px-6 py-4 text-center">
@@ -885,6 +901,12 @@
     </footer>
 
     <script>
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
         document.getElementById('maintenanceOverlay').style.display = 'none';
 
         // Function to check if the server is running when the button is clicked
