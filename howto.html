@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Vae Victus Launcher</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-900 text-white">
+    <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Vaelogo.png" alt="Vae Victus AI Logo" class="mr-3 h-10">
+                <a href="index.html" class="text-3xl font-bold text-white">Vae Victus AI</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="menuButton" class="text-white md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <!-- Nav Menu -->
+            <nav id="navMenu" class="hidden md:flex space-x-4 text-white">
+                <a href="index.html" class="hover:text-blue-500">Home</a>
+                <a href="demo.html" class="hover:text-blue-500">Demo</a>
+                <a href="consultation.html" class="hover:text-blue-500">Consultation</a>
+            </nav>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-gray-800 text-white">
+            <a href="index.html" class="block py-2 px-4 hover:bg-gray-700">Home</a>
+            <a href="demo.html" class="hover:text-blue-500">Demo</a>
+            <a href="consultation.html" class="block py-2 px-4 hover:bg-gray-700">Consultation</a>
+            
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 text-center flex-grow">
+        <section class="container mx-auto px-6 py-12 text-center">
+            <div class="feature-item bg-gray-800 text-gray-100 shadow-md rounded-lg p-8 max-w-xl mx-auto">
+                <h3 class="text-3xl font-semibold mb-4">How to Use Vae Victus Launcher</h3>
+                <img src="howtoimg/launcher.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+                <!-- Host Locally Section -->
+                <h4 class="text-2xl font-semibold mt-6 mb-3">Host Locally</h4>
+                <ol class="list-decimal list-inside text-left text-gray-300 space-y-2 px-6">
+                    <li>Open the application <strong>vae victus launcher.exe</strong><br>Current status will show not running if you have not started it.</li>
+                    <li>Select the <strong>Start Locally (Offline)</strong> button.
+                    <img src="howtoimg/startlocal.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+                    </li>
+                    <li>Access your AI locally in any web browser by pasting <code class="bg-gray-700 px-2 py-1 rounded">http://localhost:5104</code>in the url bar.<br>
+                    Or select the Go To Link button.</li>
+                    <li>To stop, select <strong>Stop Local Host</strong>.</li>
+                </ol>
+
+                <!-- Host Online Section -->
+                <h4 class="text-2xl font-semibold mt-8 mb-3">Host Online</h4>
+                <p class="text-gray-300 mb-4">
+                    Online hosting lets you access the AI model from any internet-connected device, such as a phone or another computer.
+                </p>
+                <ol class="list-decimal list-inside text-left text-gray-300 space-y-2 px-6">
+                    <li>Ensure <strong>Local Host</strong> is running (status should say "Running Locally").</li>
+                    <img src="howtoimg/checklocal.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+                    <li>Go to the <strong>Host Online</strong> tab.</li>
+                    <li>Enter your NGROK domain manually or choose a saved domain from the dropdown. (We will set this up during installation)</li>
+                    <img src="howtoimg/domains.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+                    <li>Select the <strong>Host Online</strong> button.</li>
+                    <li>Access the AI model by navigating to the link from the Link to Access box, Or select the Go To Link button
+                        <img src="howtoimg/gotolink.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+                    </li>
+                    <li>To stop online hosting, select the <strong>Stop Online Hosting</strong> button.</li>
+                </ol>
+
+                <!-- Troubleshooting Section -->
+                <h4 class="text-2xl font-semibold mt-8 mb-3">Troubleshooting</h4>
+                <p class="text-gray-300">
+                    If you encounter issues, please email us at <a href="mailto:vaevictus.ai@gmail.com" class="text-blue-500 hover:text-blue-600">vaevictus.ai@gmail.com</a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-100 text-center p-4">
+        <p>© 2024 Vae Victus AI</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
