@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to use Vae Victus Lite</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-900 text-white">
+    <header class="bg-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="Vaelogo.png" alt="Vae Victus AI Logo" class="mr-3 h-10">
+                <a href="index.html" class="text-3xl font-bold text-white">Vae Victus AI</a>
+            </div>
+            <button id="menuButton" class="text-white md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                </svg>
+            </button>
+            <nav id="navMenu" class="hidden md:flex space-x-4 text-white">
+                <a href="index.html" class="hover:text-blue-500">Home</a>
+                <a href="demo.html" class="hover:text-blue-500">Demo</a>
+                <a href="consultation.html" class="hover:text-blue-500">Consultation</a>
+                <a href="https://buymeacoffee.com/rhill20" target="_blank" class="hover:text-yellow-400 font-semibold">☕ Tip</a>
+            </nav>
+        </div>
+        <div id="mobileMenu" class="md:hidden hidden bg-gray-800 text-white">
+            <a href="index.html" class="block py-2 px-4 hover:bg-gray-700">Home</a>
+            <a href="demo.html" class="block py-2 px-4 hover:bg-gray-700">Demo</a>
+            <a href="consultation.html" class="block py-2 px-4 hover:bg-gray-700">Consultation</a>
+            <a href="https://buymeacoffee.com/rhill20" target="_blank" class="hover:text-yellow-400 font-semibold">☕ Tip</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12 text-center flex-grow">
+        <h2 class="text-4xl font-bold mb-6">How to Install and Use Vae Victus Lite</h2>
+        <!-- Tabbed Navigation -->
+        <div class="flex justify-center mb-6">
+            <button id="installTab" class="tab-button bg-blue-600 text-white px-4 py-2 rounded-l-lg">Installation</button>
+            <button id="useTab" class="tab-button bg-gray-700 text-white px-4 py-2 rounded-r-lg">How to Use</button>
+        </div>
+
+
+
+                <!-- Host Locally Section -->
+                <section id="installSection" class="container mx-auto px-6 py-12 text-center">
+                    <div class="feature-item bg-gray-800 text-gray-100 shadow-md rounded-lg p-8 max-w-xl mx-auto">
+                        
+                        <img src="Litepics/home.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto"><br>
+                        <a href="https://github.com/Rhill20/Vae-Victus-LLM-Manager/archive/refs/heads/main.zip" 
+                               class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 inline-block">
+                                Download ZIP
+                            </a>
+                <h4 class="text-2xl font-semibold mt-6 mb-3">Step 1: Install Ollama</h4>
+                <h4 class="text-l font-semibold mt-6 mb-3">Ollama Allows You to Install the Language Models</h4>
+
+            <ol class="list-decimal list-inside text-left text-gray-300 space-y-2 px-6">
+                <li>Visit the official Ollama website:  
+                    <a href="https://ollama.com" class="text-blue-400 hover:underline">https://ollama.com</a>
+                </li>
+                <li>Download the installer for your operating system (Windows, macOS, or Linux).</li>
+                <li>Run the installer and follow the on-screen instructions.</li>
+                <li>Once installed, open a terminal or command prompt and verify the installation by running:  
+                    <code class="bg-gray-700 px-2 py-1 rounded">ollama --version</code>
+                </li>
+                <li>If the version number appears, Ollama is installed successfully.</li>
+            </ol>
+
+                <!-- Host Online Section -->
+                <h4 class="text-2xl font-semibold mt-8 mb-3">Step 2: Install Vae Victus Lite</h4>
+
+                <ol class="list-decimal list-inside text-left text-gray-300 space-y-2 px-6">
+                    <li>Go to the <strong>Vae Victus Lite GitHub Repository</strong>:</li>
+                    <a href="https://github.com/Rhill20/Vae-Victus-LLM-Manager" 
+                       class="text-blue-400 hover:underline block mb-2">
+                        https://github.com/Rhill20/Vae-Victus-LLM-Manager
+                    </a>
+                
+                    <li>Choose one of the following download options:</li>
+                    <ul class="list-disc list-inside text-left text-gray-300 space-y-2 px-6">
+                        <li>
+                            <strong>Option 1: Download ZIP Here</strong>  
+                            <a href="https://github.com/Rhill20/Vae-Victus-LLM-Manager/archive/refs/heads/main.zip" 
+                               class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 inline-block">
+                                Download ZIP
+                            </a>
+                        </li>
+                        <li>
+                            <strong>Option 2: Download ZIP From Github</strong>  
+                            <p>On the repository page, click on the <strong>Code</strong> button, then select <strong>Download ZIP</strong>.</p>
+                            
+                        </li>
+                        <li>
+                            <strong>Option 3: Clone via Git</strong> (For developers)  
+                            <p>If you have Git installed, you can clone the repository:</p>
+                            <code class="bg-gray-700 px-2 py-1 rounded block">
+                                git clone https://github.com/Rhill20/Vae-Victus-LLM-Manager.git
+                            </code>
+                        </li>
+                    </ul>
+                
+                    <li><strong>Extract the ZIP File</strong> (if downloaded as a ZIP):</li>
+                    <ul class="list-disc list-inside text-left text-gray-300 space-y-2 px-6">
+                        <li>Locate the downloaded ZIP file in your **Downloads** folder.</li>
+                        <li>Right-click the file and select **Extract All**.</li>
+                        <li>Choose a location (e.g., **Desktop**) and click **Extract**.</li>
+                    </ul>
+                   
+                
+                    <li><strong>Create a Desktop Shortcut</strong>:</li>
+                    <ul class="list-disc list-inside text-left text-gray-300 space-y-2 px-6">
+                        <li>Navigate to the extracted folder.</li>
+                        <li>Right-click **VaeVictusLite.exe** and select **Create Shortcut**.</li>
+                        <li>Drag the shortcut to your desktop for easy access.</li>
+                    </ul>
+                   
+                
+                    <li><strong>Run Vae Victus Lite</strong>:</li>
+                    <ul class="list-disc list-inside text-left text-gray-300 space-y-2 px-6">
+                        <li>Double-click the shortcut on your desktop.</li>
+                        <li>If you see a Windows Defender warning, click **More Info** → **Run Anyway**.</li>
+                    </ul>
+                </ol>
+                
+               
+
+                <!-- Troubleshooting Section -->
+                <h4 class="text-2xl font-semibold mt-8 mb-3">Troubleshooting</h4>
+                <p class="text-gray-300">
+                    If you encounter issues, please email us at <a href="mailto:vaevictus.ai@gmail.com" class="text-blue-500 hover:text-blue-600">vaevictus.ai@gmail.com</a>.
+                </p>
+            </div>
+        </section>
+         <!-- How to Use Section (Hidden Initially) -->
+        <!-- How to Use Section -->
+<section id="useSection" class="container mx-auto px-6 py-12 text-center hidden">
+    <div class="feature-item bg-gray-800 text-gray-100 shadow-md rounded-lg p-8 max-w-xl mx-auto">
+        <h3 class="text-3xl font-semibold mb-4">How to Use Vae Victus Lite</h3>
+        <img src="Litepics/home.png" alt="Open Application Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+        <!-- Open Application -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 1: Open Vae Victus Lite</h4>
+        <p class="text-gray-300">Double-click on the <strong>VaeVictusLite.exe</strong> shortcut to launch the application.</p>
+
+        <!-- Selecting a Model -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 2: Select a Model</h4>
+        <p class="text-gray-300">Choose a model from the <strong>MODELS</strong> list on the left panel.</p>
+        <img src="Litepics/models.png" alt="Select Model Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+        <!-- Refresh, Add, Delete -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 3: Manage Models</h4>
+        <p class="text-gray-300">
+            - Click <strong>🔄 Refresh</strong> to reload models.<br>
+            - Click <strong>➕ Add</strong> to install a new model.<br>
+            - Click <strong>❌ Delete</strong> to remove a model.
+        </p>
+        <img src="Litepics/manage.png" alt="Manage Models Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+        <!-- Enter a Prompt -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 4: Enter a Prompt</h4>
+        <p class="text-gray-300">Type your prompt in the <strong>PROMPT</strong> text box after selecting a model.</p>
+        <img src="Litepics/prompt.png" alt="Enter Prompt Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+        <!-- Add Image (Optional) -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 5: Add an Image (Optional)</h4>
+        <p class="text-gray-300">Click <strong>📷 Add Image</strong> to attach an image to your prompt. This will not work on models that dont support images. Please check your models documentation</p>
+        
+
+        <!-- Generate Response -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 6: Generate Response</h4>
+        <p class="text-gray-300">Click <strong>🚀 Generate</strong> to process your prompt.</p>
+        <img src="litepics/generate.png" alt="Generate Response Screenshot" class="mt-2 rounded-lg shadow-md max-w-full mx-auto">
+
+        <!-- Stop Processing -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 7: Stop Generation (If Needed)</h4>
+        <p class="text-gray-300">Click <strong>🛑 Stop</strong> to cancel processing.</p>
+        
+
+        <!-- View Chat History -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 8: View Chat History</h4>
+        <p class="text-gray-300">Generated responses will appear in the <strong>CHAT HISTORY</strong> section.</p>
+        
+
+        <!-- Save or Clear History -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 9: Save or Clear History</h4>
+        <p class="text-gray-300">
+            - Click <strong>💾 Save</strong> to store your chat logs.<br>
+            - Click <strong>🧹 Clear History</strong> to reset the chat.
+        </p>
+        
+
+        <!-- Tip Button -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Step 10: Support Development</h4>
+        <p class="text-gray-300">Click <strong>☕ Tip</strong> to support the project.</p>
+       
+
+        <!-- Troubleshooting -->
+        <h4 class="text-2xl font-semibold mt-6 mb-3">Troubleshooting</h4>
+        <p class="text-gray-300">
+            If you experience issues:<br>
+            - Ensure Ollama is running.<br>
+            - Verify your model selection.<br>
+            - Restart the application.<br>
+            
+            If problems persist, email us at 
+            <a href="mailto:vaevictus.ai@gmail.com" class="text-blue-500 hover:text-blue-600">vaevictus.ai@gmail.com</a>.
+        </p>
+    </div>
+</section>
+
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-100 text-center p-4">
+        <p>© 2024 Vae Victus AI</p>
+    </footer>
+
+    <script>
+        document.getElementById("installTab").addEventListener("click", function() {
+            document.getElementById("installSection").classList.remove("hidden");
+            document.getElementById("useSection").classList.add("hidden");
+            this.classList.add("bg-blue-600");
+            document.getElementById("useTab").classList.remove("bg-blue-600");
+            document.getElementById("useTab").classList.add("bg-gray-700");
+        });
+
+        document.getElementById("useTab").addEventListener("click", function() {
+            document.getElementById("useSection").classList.remove("hidden");
+            document.getElementById("installSection").classList.add("hidden");
+            this.classList.add("bg-blue-600");
+            document.getElementById("installTab").classList.remove("bg-blue-600");
+            document.getElementById("installTab").classList.add("bg-gray-700");
+        });
+
+        // Mobile menu toggle functionality
+        const menuButton = document.getElementById('menuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
